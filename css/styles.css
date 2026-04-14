@@ -1,95 +1,49 @@
-/* RESET y estilos base */
+/* RESET Y BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 100px;
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    position: relative;
+    background: #0a0a0a;
+    overflow-x: hidden;
 }
 
 /* ========================
-   VIDEO DE FONDO
+   NAVBAR FIXED (VERDE PROFESIONAL)
    ======================== */
-.video-background {
+.header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.video-background video {
-    position: absolute;
-    top: 50%;
+    top: 25px;
     left: 50%;
-    min-width: 100%;
-    min-height: 100%;
+    transform: translateX(-50%);
+    z-index: 1000;
     width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
+    pointer-events: none;
 }
 
-/* Overlay para oscurecer el video y que el texto sea legible */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 1;
-}
-
-/* ========================
-   CONTENIDO PRINCIPAL (flota sobre el video)
-   ======================== */
-.content {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-}
-
-/* ========================
-   NAVBAR - Flota sobre todo
-   Sutilmente transparente para que se vea el video detrás
-   ======================== */
 .nav-bar {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    
-    width: fit-content;
-    margin: 32px auto;
-    padding: 6px 20px 6px 16px;
-    
-    /* Fondo semitransparente para que flote y se vea el video */
-    background: rgba(254, 247, 233, 0.5);
-    backdrop-filter: blur(8px);
-    border-radius: 80px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
-    
-    gap: 24px;
-}
-
-/* Cámara */
-.camera-side {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    line-height: 0;
+    gap: 15px;
+    padding: 8px 22px;
+    /* Verde Sabio Profundo y elegante */
+    background: rgba(153, 201, 119, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    pointer-events: all;
 }
 
-/* Lente oscuro */
 .lens {
     width: 32px;
     height: 32px;
@@ -97,30 +51,8 @@ body {
     border-radius: 50%;
     position: relative;
     border: 1.5px solid rgba(255, 255, 255, 0.3);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    cursor: pointer;
 }
 
-.lens:hover {
-    transform: scale(1.02);
-}
-
-/* Reflejo interno */
-.lens::before {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: radial-gradient(circle at 35% 35%, #3a3a3a, #0a0a0a);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 0.5px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Punto rojo */
 .red-dot {
     width: 6px;
     height: 6px;
@@ -138,149 +70,239 @@ body {
     50% { opacity: 0.35; }
 }
 
-/* Menú de navegación */
 .nav-links {
     display: flex;
     list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 8px;
+    gap: 2px;
 }
 
-.nav-links li {
-    display: flex;
-}
-
-/* Enlaces */
 .nav-link {
     text-decoration: none;
-    color: #3a2c1c;
-    font-family: 'Inter', sans-serif;
+    color: #ffffff;
     font-size: 13px;
-    font-weight: 500;
-    padding: 8px 18px;
-    border-radius: 60px;
-    transition: all 0.2s ease;
-    letter-spacing: -0.2px;
-    white-space: nowrap;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    background: rgba(0, 0, 0, 0.08);
-    color: #1a140a;
-}
-
-.hero {
-    text-align: center;
-    padding: 80px 24px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hero .highlight {
-    background: linear-gradient(135deg, #f5c68a, #e8b060);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: none;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 400;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
 }
 
 /* ========================
-   RESPONSIVE
+   HERO
    ======================== */
-@media (max-width: 640px) {
-    .nav-bar {
-        margin: 20px auto;
-        padding: 5px 14px 5px 12px;
-        gap: 16px;
-        backdrop-filter: blur(6px);
-    }
-    
-    .lens {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .lens::before {
-        width: 10px;
-        height: 10px;
-    }
-    
-    .red-dot {
-        width: 5px;
-        height: 5px;
-        top: 4px;
-        right: 4px;
-    }
-    
-    .nav-link {
-        padding: 6px 14px;
-        font-size: 12px;
-    }
-    
-    .nav-links {
-        gap: 4px;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
+.hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
 }
 
-@media (max-width: 480px) {
-    .nav-bar {
-        padding: 4px 12px 4px 10px;
-        gap: 12px;
+.video-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    font-weight: 800;
+}
+
+.hero-content .hero-highlight {
+    color: #7DA83E; 
+    font-style: italic;/* Verde clarito para el texto del Hero */
+}
+
+/* ========================
+   SOBRE MÍ (AJUSTE DE COLUMNAS)
+   ======================== */
+.sobre-mi {
+    padding: 80px 5%;
+    background: linear-gradient(160deg, #fdfbf7 0%, #f5f0e6 40%, #dce6d5 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sobre-mi-container {
+    width: 100%;
+    max-width: 1300px; /* Aumentamos un poco para dar más aire */
+    margin: 0; 
+    display: grid;
+    /* Ajustamos el ratio: 1fr para la imagen (más espacio) y 1.2fr para el texto */
+    grid-template-columns: 1fr 1.2fr; 
+    gap: 80px;
+    align-items: center;
+}
+
+.sobre-mi-imagen {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; 
+}
+
+.imagen-wrapper {
+    width: 100%;
+    /* REQUISITO: Imagen más grande */
+    max-width: 520px; 
+    aspect-ratio: 4 / 5;
+    background: linear-gradient(145deg, #A65D43, #ac705a);
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255,255,255,0.7);
+}
+
+.imagen-placeholder span {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* CONTENIDO TEXTO */
+.sobre-mi-contenido {
+    color: #A65D43;
+    padding-left: 20px;
+    /* REQUISITO: Que el texto no ocupe tanto ancho */
+    max-width: 600px; 
+}
+
+.section-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #A65D43;
+    font-weight: 800;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.sobre-mi-contenido h2 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    color: #1a2412;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.sobre-mi-contenido h2 .highlight {
+    color: #d1947e;
+}
+
+.descripcion .intro {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #512414;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    border-left: 3px solid #A65D43;
+    padding-left: 20px;
+}
+
+.descripcion p {
+    font-size: 1rem;
+    color: black;
+    line-height: 1.8;
+}
+
+.stats {
+    display: flex;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.stat-numero {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #cf886e;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #7c442f;
+    font-weight: 600;
+}
+
+/* ESPECIALIDADES (GRID 2x2 PROFESIONAL) */
+.especialidades h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #1a2412;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 200px); 
+    gap: 12px;
+}
+
+.especialidad {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 12px 18px;
+    border-radius: 12px; /* Un poco más cuadrado/moderno */
+    font-size: 0.9rem;
+    color: #814a37;
+    font-weight: 600;
+    border: 1px solid rgba(107, 140, 66, 0.1);
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.especialidad:hover {
+    background: #d27655;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .sobre-mi-container {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
-    
-    .lens {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .lens::before {
-        width: 8px;
-        height: 8px;
-    }
-    
-    .red-dot {
-        width: 4px;
-        height: 4px;
-        top: 3px;
-        right: 3px;
-    }
-    
-    .nav-link {
-        padding: 5px 10px;
-        font-size: 11px;
-    }
-    
-    .nav-links {
-        gap: 2px;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
+    .sobre-mi-imagen { justify-content: center; }
+    .descripcion .intro { border-left: none; padding-left: 0; }
+    .stats { justify-content: center; }
+    .especialidades-grid { 
+        margin: 0 auto;
     }
 }

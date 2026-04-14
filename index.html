@@ -3,43 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Profesional | Valentina</title>
+    <title>Valentina Ferreyra | Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="video-background">
-        <video autoplay muted loop playsinline id="bg-video">
-            <source src="WhatsApp Video 2026-04-13 at 17.29.42.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video>
-        <div class="overlay"></div>
-    </div>
 
-    <div class="content">
-        <header class="header">
-            <nav class="nav-bar">
-                <div class="camera-side">
-                    <div class="lens">
-                        <div cla ss="red-dot"></div>
+    <header class="header">
+        <nav class="nav-bar">
+            <div class="camera-side">
+                <div class="lens">
+                    <div class="red-dot"></div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+                <li><a href="#portfolio" class="nav-link">Portafolio</a></li>
+                <li><a href="#contacto" class="nav-link btn-contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="video-background">
+            <video autoplay muted loop playsinline id="bg-video">
+                <source src="WhatsApp Video 2026-04-13 at 17.29.42.mp4" type="video/mp4">
+            </video>
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>No es lo que <span class="hero-highlight">fotografío</span><br>sino cómo lo miro</h1>
+            <p>Valentina Ferreyra — Fotógrafa y Filmmaker</p>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="sobre-mi">
+        <div class="sobre-mi-container">
+            
+            <div class="sobre-mi-imagen">
+                <div class="imagen-wrapper">
+                    <div class="imagen-placeholder">
+                        <span>Valentina Ferreyra</span>
                     </div>
                 </div>
-                
-                <ul class="nav-links">
-                    <li><a href="#" class="nav-link">Inicio</a></li>
-                    <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
-                    <li><a href="#portfolio" class="nav-link">Portafolio</a></li>
-                    <li><a href="#contacto" class="nav-link btn-contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
+            </div>
 
-        <main>
-            <section class="hero">
-                <h1>No es lo que<span class="highlight"> fotografio</span><br>sino como lo miro</h1>
-                <p>Valentina Ferreyra · Fotografa y Filmmaker</p>
-            </section>
-        </main>
-    </div>
+            <div class="sobre-mi-contenido">
+                <span class="section-tag">Conoce a la artista</span>
+                <h2>Detrás de cada <span class="highlight">imagen</span> hay una <span class="highlight">historia</span></h2>
+                
+                <div class="descripcion">
+                    <p class="intro">Hola, soy <strong>Valentina Ferreyra</strong> — apasionada por capturar la esencia de cada momento.</p>
+                    <p>Mi enfoque va más allá de la técnica: busco la emoción, la luz que no se ve a simple vista y esos instantes que cuentan historias sin palabras.</p>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-numero">50+</span>
+                        <span class="stat-label">Proyectos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-numero">30+</span>
+                        <span class="stat-label">Clientes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-numero">5+</span>
+                        <span class="stat-label">Años</span>
+                    </div>
+                </div>
+
+                <div class="especialidades">
+                    <h3>Especialidades</h3>
+                    <div class="especialidades-grid">
+                        <span class="especialidad">📷 Retrato</span>
+                        <span class="especialidad">🎬 Audiovisual</span>
+                        <span class="especialidad">✨ Edición</span>
+                        <span class="especialidad">🌿 Lifestyle</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 </body>
 </html>
