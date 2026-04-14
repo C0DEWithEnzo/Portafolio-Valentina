@@ -6,6 +6,7 @@
     <title>Valentina Ferreyra | Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -28,7 +29,7 @@
     <section class="hero-section">
         <div class="video-background">
             <video autoplay muted loop playsinline id="bg-video">
-                <source src="WhatsApp Video 2026-04-13 at 17.29.42.mp4" type="video/mp4">
+                <source src="sources/WhatsApp Video 2026-04-13 at 17.29.42.mp4" type="video/mp4">
             </video>
             <div class="overlay"></div>
         </div>
@@ -43,9 +44,7 @@
             
             <div class="sobre-mi-imagen">
                 <div class="imagen-wrapper">
-                    <div class="imagen-placeholder">
-                        <span>Valentina Ferreyra</span>
-                    </div>
+                    <img src="sources/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Valentina Ferreyra" class="foto-perfil">
                 </div>
             </div>
 
@@ -86,5 +85,96 @@
 
         </div>
     </section>
+    <section id="portfolio" class="portfolio">
+        <div class="portfolio-container">
+            <div class="portfolio-header">
+                <span class="section-tag">Portafolio</span>
+                <h2>Explora mi <span class="highlight">universo</span> visual</h2>
+                <p>Una selección de trabajos capturados a través de mi lente.</p>
+            </div>
+    
+            <div class="portfolio-grid">
+                <div class="postal">
+                    <div class="postal-image">
+                        <img src="sources/gettyimages-2194197262-612x612.jpg" alt="Retrato">
+                        <div class="postal-overlay">
+                            <a href="galeria-retrato.html" class="btn-postal">Ver Galería</a>
+                        </div>
+                    </div>
+                    <div class="postal-info">
+                        <p>Retrato</p>
+                    </div>
+                </div>
+    
+                <div class="postal">
+                    <div class="postal-image">
+                        <img src="sources/woman-rainbow-sweater-smiles-while-260nw-2760338949.webp" alt="Lifestyle">
+                        <div class="postal-overlay">
+                            <a href="galeria-lifestyle.html" class="btn-postal">Ver Galería</a>
+                        </div>
+                    </div>
+                    <div class="postal-info">
+                        <p>Lifestyle</p>
+                    </div>
+                </div>
+    
+                <div class="postal">
+                    <div class="postal-image">
+                        <img src="sources/92f1f79ffbbca5d70f46037ed2b226bb.jpg" alt="Audiovisual">
+                        <div class="postal-overlay">
+                            <a href="galeria-audiovisual.html" class="btn-postal">Ver Galería</a>
+                        </div>
+                    </div>
+                    <div class="postal-info">
+                        <p>Audiovisual</p>
+                    </div>
+                </div>
+    
+                <div class="postal">
+                    <div class="postal-image">
+                        <img src="sources/mulders-landscape-suplies-outdoor-ads.jpg" alt="Publicidad">
+                        <div class="postal-overlay">
+                            <a href="galeria-publicidad.html" class="btn-postal">Ver Galería</a>
+                        </div>
+                    </div>
+                    <div class="postal-info">
+                        <p>Publicidad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contacto">
+        <div class="contact-container">
+            <div class="contact-header">
+                <span class="section-tag">Contacto</span>
+                <h2>¿Tenes una idea? <span class="highlight">Hablemos</span></h2>
+                <p>Disponible para sesiones de retrato, eventos y proyectos audiovisuales comerciales.</p>
+            </div>
+    
+            <div class="contact-buttons">
+                <a href="https://wa.me/tunumero" target="_blank" class="contact-button-circle whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/tuusuario" target="_blank" class="contact-button-circle instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="mailto:hola@valentina.com" class="contact-button-circle email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+    
+            <div class="contact-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <p>Santa Fe, Argentina</p>
+            </div>
+    
+            <footer class="footer">
+                <p>© 2026 Valentina Ferreyra — Todos los derechos reservados</p>
+                <p class="agency-credit">Diseñado por <strong>ZenithLab</strong></p>
+            </footer>
+        </div>
+    </section>
+    <script src="js/animations.js"></script>
 </body>
 </html>
