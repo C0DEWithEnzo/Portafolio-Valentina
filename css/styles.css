@@ -181,12 +181,12 @@ body {
 
 .sobre-mi-container {
     width: 100%;
-    max-width: 1300px; /* Aumentamos un poco para dar más aire */
+    max-width: 1200px; /* Aumentamos un poco para dar más aire */
     margin: 0; 
     display: grid;
     /* Ajustamos el ratio: 1fr para la imagen (más espacio) y 1.2fr para el texto */
-    grid-template-columns: 1fr 1.2fr; 
-    gap: 80px;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
     align-items: center;
 }
 
@@ -339,7 +339,7 @@ body {
 /* ========================
    SECCIÓN CONTACTO (GRIS ZINC & BRAND COLORS)
    ======================== */
-   .contact {
+.contact {
     padding: 120px 24px 60px;
     background: #1a1a1a; /* GRIS ZINC PROFUNDO */
     color: #ffffff;
@@ -459,97 +459,162 @@ body {
 }
 
 /* ========================
-   SECCIÓN PORTAFOLIO (LANDSCAPE & TAN BROWN)
+   PORTAFOLIO FULLSCREEN (CUADRANTES)
    ======================== */
-   .portfolio {
-    padding: 120px 24px;
-    background: #D9C5B2; /* MARRÓN ARENA/TAN (Es marrón, pero claro) */
-    color: #2B0703;
-}
-
-.portfolio-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.portfolio-header .highlight {
-    color: #8E562E; /* Bronce/Ámbar de tu paleta */
-    font-style: italic;
-}
-
-.portfolio-header p {
-    color: #541408;
-    opacity: 0.8;
-    font-weight: 500;
-}
-
-/* GRID 2x2 LANDSCAPE */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.postal-image {
-    position: relative;
+   .portfolio-full {
     width: 100%;
-    aspect-ratio: 16 / 9; /* FORMATO HORIZONTAL */
+    min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla */
+    background: #2B0703; /* Tu color base de ZenithLab */
     overflow: hidden;
-    border-radius: 30px; 
-    box-shadow: 0 15px 45px rgba(84, 20, 8, 0.2);
-    background: #C6AC8F; /* Marrón base para el placeholder */
 }
 
-.postal-image img {
+.portfolio-grid-full {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-template-rows: repeat(2, 1fr);    /* 2 filas */
+    width: 100%;
+    height: 100vh; /* Altura total de la sección */
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
+    object-fit: cover; /* Clave para que la imagen no se estire */
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* OVERLAY Y BOTÓN */
-.postal-overlay {
+/* Efecto hover en la imagen */
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+/* OVERLAY (Se ve siempre pero se intensifica al hover) */
+.item-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(84, 20, 8, 0.3); /* Overlay marrón translúcido */
+    background: linear-gradient(to top, rgba(43, 7, 3, 0.8) 0%, rgba(43, 7, 3, 0.2) 50%, transparent 100%);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end; /* Texto abajo */
+    padding: 40px;
+    transition: background 0.4s ease;
+}
+
+.portfolio-item:hover .item-overlay {
+    background: rgba(43, 7, 3, 0.6); /* Se oscurece al hover */
+}
+
+/* TEXTO DENTRO DEL CUADRANTE */
+.item-text {
+    color: #ffffff;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover .item-text {
+    transform: translateY(0);
+}
+
+.category-tag {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #D2B48C; /* El color arena claro */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.item-text h3 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* BOTÓN QUE APARECE */
+.btn-explore {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #D2B48C;
+    color: #D2B48C;
+    text-decoration: none;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
     opacity: 0;
     transition: all 0.4s ease;
 }
 
-.postal:hover .postal-overlay {
+.portfolio-item:hover .btn-explore {
     opacity: 1;
+    background: #D2B48C;
+    color: #2B0703;
 }
 
-.btn-postal {
-    padding: 14px 35px;
-    background: #541408; /* El marrón caoba oscuro para el botón */
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 50px;
-    transition: 0.3s;
+/* RESPONSIVE (Móvil) */
+@media (max-width: 768px) {
+    .portfolio-grid-full {
+        grid-template-columns: 1fr; /* Una columna por categoría */
+        grid-template-rows: repeat(4, 250px); /* Altura fija para no hacer scroll infinito */
+        height: auto;
+    }
+    
+    .item-overlay {
+        padding: 20px;
+    }
+    
+    .btn-explore {
+        opacity: 1; /* Siempre visible en móvil */
+    }
 }
 
-.btn-postal:hover {
-    background: #2B0703;
-    transform: scale(1.05);
-}
+@media (max-width: 1100px) {
+    .sobre-mi {
+        padding: 60px 20px;
+        height: auto; /* IMPORTANTE: En pantallas chicas que el alto sea libre */
+    }
 
-.postal-info p {
-    margin-top: 15px;
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: #541408; /* Marrón fuerte para el texto */
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-align: left;
-    padding-left: 5px;
+    .sobre-mi-container {
+        grid-template-columns: 1fr; /* Una sola columna mucho antes */
+        gap: 50px;
+        text-align: center;
+    }
+
+    .sobre-mi-imagen {
+        order: 1; /* La foto arriba */
+        justify-content: center;
+    }
+
+    .sobre-mi-contenido {
+        order: 2; /* El texto abajo */
+        padding-left: 0;
+        max-width: 100%;
+    }
+
+    .imagen-wrapper {
+        max-width: 380px; /* Reducimos un poco la foto en modo "angosto" */
+    }
+
+    .descripcion .intro {
+        border-left: none;
+        padding-left: 0;
+        font-size: 1.1rem;
+    }
+
+    .stats {
+        justify-content: center;
+        flex-wrap: wrap; /* Si no entran los 3 en linea, que bajen */
+    }
+
+    .especialidades-grid {
+        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 400px;
+    }
 }
