@@ -191,3 +191,33 @@
   .row3 { grid-template-columns: 1fr; }
   .footer { flex-direction: column; gap: 16px; }
 }
+
+/* ── Lightbox ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  transform: scale(0.96);
+  transition: transform 0.25s ease;
+  cursor: default;
+}
+.lightbox.active img {
+  transform: scale(1);
+}
